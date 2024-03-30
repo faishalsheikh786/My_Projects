@@ -1,0 +1,90 @@
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <form class="form-card" onsubmit="event.preventDefault()">
+
+                    <div class="row justify-content-between text-left">
+                        <label class="form-sub-heading"><b>Personal Information : </b></label>
+                    </div>
+
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Name<span class="text-danger"> *</span></label> <input type="text" name="name" maxlength="100" value="{{student.name}}" required id="id_name" > </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Roll Number<span class="text-danger"> *</span></label> <input type="text" name="roll_no" placeholder="eg: 1604-21-735-000" maxlength="100" value="{{student.roll_no}}" required id="id_roll_no"></div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Date of Birth<span class="text-danger"> *</span></label> <input type="text" name="dob" placeholder="eg: 27/10/2003" value="{{student.dob}}" required id="id_dob"> </div>
+                        
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Blood Group<span class="text-danger"> *</span></label> <input type="text" name="blood_group" maxlength="10" value="{{student.blood_group}}" required id="id_blood_group"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Gender<span class="text-danger"> *</span></label> <input type="text" name="gender" maxlength="15" value="{{student.gender}}" required id="id_gender"> </div>
+                        
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Religion<span class="text-danger"> *</span></label> <input type="text" name="religion" maxlength="15" value="{{student.religion}}" required id="id_religion"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Mother Name<span class="text-danger"> *</span></label> <input type="text" name="mother_name" maxlength="100" value="{{student.mother_name}}" required id="id_mother_name"> </div>
+                        
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Father Name<span class="text-danger"> *</span></label> <input type="text" name="father_name" maxlength="100" value="{{student.father_name}}" required id="id_father_name"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone Number<span class="text-danger"> *</span></label> <input type="text" name="phone_number" maxlength="12" value="{{student.phone_number}}" required id="id_phone_number"> </div>
+                        
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Email<span class="text-danger"> *</span></label> <input type="text" name="email" placeholder="eg: example@gmail.com" maxlength="100" value="{{student.email}}" required id="id_email"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Address<span class="text-danger"> *</span></label> <input type="text" name="address" maxlength="200" value="{{student.address}}" required id="id_address"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Profile Photo<span class="text-danger"> *</span></label> <input type="file" name="image" accept="image/*" id="id_image"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"><img src="{{student.image.url}}" alt="profile-photo"></div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                    <label class="form-sub-heading"><b>Academic Information : </b></label>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 1 SGPA<span class="text-danger"> *</span></label> <input type="text" name="sem1_sgpa" placeholder="eg: 4.04" value="{{student.sem1_sgpa}}" required id="id_sem1_sgpa"> </div>
+                        
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 2 SGPA<span class="text-danger"> *</span></label> <input type="text" name="sem2_sgpa" placeholder="eg: 4.04" value="{{student.sem2_sgpa}}" required id="id_sem2_sgpa"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 3 SGPA<span class="text-danger"> *</span></label> <input type="text" name="sem3_sgpa" placeholder="eg: 4.04" value="{{student.sem3_sgpa}}" required id="id_sem3_sgpa">  </div>
+                        
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 4 SGPA<span class="text-danger"> *</span></label> <input type="text" name="sem4_sgpa" placeholder="eg: 4.04" value="{{student.sem4_sgpa}}" required id="id_sem4_sgpa">  </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 5 SGPA<span class="text-danger"> *</span></label> <input type="text" name="sem5_sgpa" placeholder="eg: 4.04" value="{{student.sem5_sgpa}}" required id="id_sem5_sgpa">  </div>
+                        
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 6 SGPA<span class="text-danger"> *</span></label> <input type="text" name="sem6_sgpa" placeholder="eg: 4.04" value="{{student.sem6_sgpa}}" required id="id_sem6_sgpa">  </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 7 SGPA<span class="text-danger"> *</span></label> <input type="text" name="sem7_sgpa" placeholder="eg: 4.04" value="{{student.sem7_sgpa}}" required id="id_sem7_sgpa">  </div>
+                        
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 8 SGPA<span class="text-danger"> *</span></label> <input type="text" name="sem8_sgpa" value="Faishal" value="{{student.sem8_sgpa}}" required id="id_sem8_sgpa">  </div>
+                    </div>
+
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6">
+                            <button type="submit" class="btn-block btn">Submit</button> 
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="row justify-content-between text-left">
+    <div class="form-group col-sm-6 flex-column d-flex"> 
+        <label class="form-control-label px-3">Profile Photo<span class="text-danger"> *</span></label> 
+        Currently: <a href="/media/images/default_image.png">images/default_image.png</a>
+        <input type="checkbox" name="image-clear" id="image-clear_id">
+        <label for="image-clear_id">Clear</label><br>
+        Change:
+        <input type="file" name="image" accept="image/*" id="id_image"> 
+    </div>
+</div>
+                            

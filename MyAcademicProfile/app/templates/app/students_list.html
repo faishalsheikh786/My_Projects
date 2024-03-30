@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static "app/students_list.css" %}">
+    <title>Students List</title>
+</head>
+<style>
+    button.btn {
+        display:block;
+        margin-top:10px;
+        margin-right:20px;
+        background-color: #C08261;
+        border: none;
+        color: white;
+        padding: 16px 25px;
+        font-size: 16px;
+        cursor: pointer;
+        float:right;
+        border-radius:10px;
+    }
+      
+    /* Darker background on mouse-over */
+    .btn:hover {
+        transform:scale(1.1);
+    }
+    
+</style>
+<body>
+    <nav class="navbar">
+        <ul>
+          <li class="list"><a class="anchor" href="{% url "home" %}">Home</a></li>
+          <li class="dropdown list">
+              <a class="anchor" href="javascript:void(0)" class="dropbtn">Branch</a> 
+              <div class="dropdown-content">
+                  <a class="anchor" href="{% url "students_list" %}">ECE</a>
+                  <a class="anchor" href="#">CSE</a>
+                  <a class="anchor" href="#">IT</a>
+              </div>
+          </li>
+          <li class="list"><a class="anchor" href="#">About</a></li>
+        </ul>
+    </nav>
+    <a href='{% url "registration" "fill"%}'>
+        <button class="btn"><i class="fa fa-plus"></i> Add</button>
+    </a>  
+
+    <div class="container">
+        <h2>ECE-B STUDENTS <small>2021-2025</small></h2>
+        <ul class="responsive-table">
+            <li class="table-header">
+                <div class="col col-1">Roll No</div>
+                <div class="col col-2">Student Name</div>
+                <div class="col col-2">Avg SGPA</div>
+                {% comment %} <div class="col col-3">Avg Sgpa</div> {% endcomment %}
+            </li>
+            {% for student in students %}
+                <a class='mylinkclass' href='{% url "login" student.roll_no %}'>
+                    <li class="table-row">
+                        <div class="col col-1" data-label="Roll Number">{{student.roll_no}}</div>
+                        <div class="col col-2" data-label="Student Name">{{student.name}}</div>
+                        <div class="col col-2" data-label="Student Name">{{student.sem1_sgpa}}</div>
+                        {% comment %} <div class="col col-3" data-label="Amount">{{student_avg_sgpa}}</div> {% endcomment %}
+                    </li>
+                </a>
+          {% endfor %}
+        </ul>
+      </div>
+</body>
+</html>
+
+
+
+{% comment %} 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static "app/students_list.css" %}">
+    <title>Students List</title>
+</head>
+<body>
+    <table>
+        <tr>
+          <th>Roll No</th>
+          <th>Name</th>
+          <th>Details</th>
+        </tr>
+        {% for student in students %}
+            <tr>
+                <td>{{student.roll_no}}</td>
+                <td>{{student.name}}</td>
+                <td><a href="{% url "student_detail" student.roll_no %}">Click here</a></td>
+            </tr>
+        {% endfor %}
+      </table>
+</body>
+</html> {% endcomment %}

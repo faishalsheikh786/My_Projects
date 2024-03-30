@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href='{% static "app/registration.css" %}'>
+    <title>Registration Form</title>
+  </head>
+  <body>
+
+
+
+    <ul>
+        <li><a class="anchor" href="{% url "home" %}">Home</a></li>
+        <li><a class="anchor" href="{% url "students_list" %}">Students List</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+            <div class="dropdown-content">
+                <a class="anchor" href="#">Link 1</a>
+                <a class="anchor" href="#">Link 2</a>
+                <a class="anchor" href="#">Link 3</a>
+            </div>
+        </li> 
+    </ul>
+
+
+
+
+
+
+
+    <form method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        
+
+        
+        <div class="container-fluid px-1 py-5 mx-auto">
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                    <h1><b><u>Registraion Form</u></b></h1>
+                        <form class="form-card" onsubmit="event.preventDefault()">
+
+                            <div class="row justify-content-between text-left">
+                                <label class="form-sub-heading"><b>Personal Information : </b></label>
+                             </div>
+
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Name<span class="text-danger"> *</span></label> {{ form.name }} </div>
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Roll Number<span class="text-danger"> *</span></label> {{ form.roll_no }}</div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Date of Birth<span class="text-danger"> *</span></label> {{ form.dob }} </div>
+                                
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Blood Group<span class="text-danger"> *</span></label> {{ form.blood_group }} </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Gender<span class="text-danger"> *</span></label> {{ form.gender }} </div>
+                                
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Religion<span class="text-danger"> *</span></label> {{ form.religion }} </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Mother Name<span class="text-danger"> *</span></label> {{ form.mother_name }} </div>
+                                
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Father Name<span class="text-danger"> *</span></label> {{ form.father_name }} </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone Number<span class="text-danger"> *</span></label> {{ form.phone_number }} </div>
+                                
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Email<span class="text-danger"> *</span></label> {{ form.email }} </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Address<span class="text-danger"> *</span></label> {{ form.address }} </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Profile Photo<span class="text-danger"> *</span></label> {{form.image}} </div>
+                                {% if id != "fill" %}
+                                    <div class="form-group col-sm-6 flex-column d-flex"><img  class="profile_img" src="{{student.image.url}}" alt="profile-photo"></div>
+                                {% endif %}
+                              
+                            </div>
+                            <div class="row justify-content-between text-left">
+                               <label class="form-sub-heading"><b>Academic Information : </b></label>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 1 SGPA<span class="text-danger"> *</span></label> {{ form.sem1_sgpa }}{{form.sem1_sgpa.errors}} </div>
+                                
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 2 SGPA<span class="text-danger"> *</span></label> {{ form.sem2_sgpa }}{{form.sem2_sgpa.errors}} </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 3 SGPA<span class="text-danger"> *</span></label> {{ form.sem3_sgpa }} {{form.sem3_sgpa.errors}} </div>
+                                
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 4 SGPA<span class="text-danger"> *</span></label> {{ form.sem4_sgpa }}{{form.sem4_sgpa.errors}}  </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 5 SGPA<span class="text-danger"> *</span></label> {{ form.sem5_sgpa }} {{form.sem5_sgpa.errors}} </div>
+                                
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 6 SGPA<span class="text-danger"> *</span></label> {{ form.sem6_sgpa }} {{form.sem6_sgpa.errors}} </div>
+                            </div>
+                            <div class="row justify-content-between text-left">
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 7 SGPA<span class="text-danger"> *</span></label> {{ form.sem7_sgpa }} {{form.sem7_sgpa.errors}} </div>
+                                
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Semester 8 SGPA<span class="text-danger"> *</span></label> {{ form.sem8_sgpa }} {{form.sem8_sgpa.errors}} </div>
+                            </div>
+
+                            <div class="row justify-content-end">
+                                <div class="form-group col-sm-6">
+                                    <button type="submit" class="btn-block btn">Submit</button> 
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        
+    </form>
+
+  </body>
+</html>
+
+

@@ -1,0 +1,182 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <!-- Font Awesome CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+    <link rel="stylesheet" type="text/css" href='{% static "app/student_detail.css" %}'>
+    <title>Student Detail</title>
+</head>
+<style>
+    button.btn {
+        display:block;
+        margin-top:10px;
+        margin-right:20px;
+        background-color: #F2ECBE;
+        border: none;
+        color: #C08261;
+        padding: 16px 25px;
+        font-size: 16px;
+        cursor: pointer;
+        float:right;
+        border-radius:10px;
+    }
+      
+    /* Darker background on mouse-over */
+
+    .btn:hover {
+        transform:scale(1.1);
+    }
+    
+</style> 
+<body>
+    <ul>
+        <li><a class="anchor" href="{% url "home" %}">Home</a></li>
+        <li><a class="anchor" href="{% url "students_list" %}">Students List</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+            <div class="dropdown-content">
+                <a class="anchor" href="#">Link 1</a>
+                <a class="anchor" href="#">Link 2</a>
+                <a class="anchor" href="#">Link 3</a>
+            </div>
+        </li> 
+    </ul>
+    <a href='{% url "registration" student.roll_no %}'>
+        <button class="btn"><i class="fa fa-edit" ></i> Edit</button>
+    </a>
+    <div class="student-profile py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                   <div class="card shadow-sm profile-area">
+                        <div class="card-header bg-transparent text-center">
+                            {% comment %} <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp"> {% endcomment %}
+                            <img class="profile_img" src="{{ student.image.url }}" alt="image">
+                            <h3>{{student.name}}</h3>
+                        </div>
+                        <div class="card-body main">
+                                <p class="mb-1"><strong class="pr-1">Roll No :</strong>{{student.roll_no}}</p>
+                                <p class="mb-1"><strong class="pr-1">Branch:</strong>ECE</p>
+                                <p class="mb-1"><strong class="pr-1">Section:</strong>B</p>
+                                <p class="mb-1"><strong class="pr-1">Contact No :</strong>{{student.phone_number}}</p>
+                                <p class="mb-1"><strong class="pr-1">Email:</strong>{{student.email}}</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-transparent border-0">
+                    <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Student Information</h3>
+                    </div>
+                    <div class="card-body pt-0">
+                        <table class="table table-bordered">
+                            <tr>
+                            <th width="30%">Academic Year	</th>
+                            <td width="2%">:</td>
+                            <td>2020</td>
+                            </tr>
+                            <tr>
+                            <th width="30%">Gender</th>
+                            <td width="2%">:</td>
+                            <td>{{student.gender}}</td>
+                            </tr>
+                            <tr>
+                            <th width="30%">Religion</th>
+                            <td width="2%">:</td>
+                            <td>{{student.religion}}</td>
+                            </tr>
+                            <tr>
+                            <th width="30%">Blood Group</th>
+                            <td width="2%">:</td>
+                            <td>{{student.blood_group}}</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Date of birth</th>
+                                <td width="2%">:</td>
+                                <td>{{student.dob}}</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Mother Name </th>
+                                <td width="2%">:</td>
+                                <td>{{student.mother_name}}</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Father Name </th>
+                                <td width="2%">:</td>
+                                <td>{{student.father_name}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div style="height: 26px"></div>
+                <div class="card shadow-sm">
+                    <div class="card-header bg-transparent border-0">
+                    <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Academic Information(SGPA)</h3>
+                    </div>
+                    <div class="card-body pt-0">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th width="30%">Semester 1</th>
+                                <td width="2%">:</td>
+                                <td>{{student.sem1_sgpa}}</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Semester 2</th>
+                                <td width="2%">:</td>
+                                <td>{{student.sem2_sgpa}}</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Semester 3</th>
+                                <td width="2%">:</td>
+                                <td>{{student.sem3_sgpa}}</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Semester 4</th>
+                                <td width="2%">:</td>
+                                <td>{{student.sem4_sgpa}}</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Semester 5</th>
+                                <td width="2%">:</td>
+                                <td>{{student.sem5_sgpa}}</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Semester 6</th>
+                                <td width="2%">:</td>
+                                <td>{{student.sem6_sgpa}}</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Semester 7</th>
+                                <td width="2%">:</td>
+                                <td>{{student.sem7_sgpa}}</td>
+                            </tr>
+                            <tr>
+                                <th width="30%">Semester 8</th>
+                                <td width="2%">:</td>
+                                <td>{{student.sem8_sgpa}}</td>
+                            </tr>
+                        </table>
+                        <div class='avg'>
+                            Avg Sgpa : {{student.avg_sgpa}}
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+  
